@@ -57,10 +57,10 @@ function resetar() {
 }
 
 function validar(): boolean {
-  erros.baUF = form.baUF.trim() ? '' : 'UF obrigatória'
-  erros.baCentral = form.baCentral.trim() ? '' : 'Central obrigatória'
-  erros.baNumber = Number(form.baNumber) > 0 ? '' : 'Número inválido'
-  erros.name = form.name.trim() ? '' : 'Nome obrigatório'
+  erros.baUF = form.baUF.trim() ? '' : 'UF obrigatÃ³ria'
+  erros.baCentral = form.baCentral.trim() ? '' : 'Central obrigatÃ³ria'
+  erros.baNumber = Number(form.baNumber) > 0 ? '' : 'NÃºmero invÃ¡lido'
+  erros.name = form.name.trim() ? '' : 'Nome obrigatÃ³rio'
 
   return !erros.baUF && !erros.baCentral && !erros.baNumber && !erros.name
 }
@@ -132,7 +132,7 @@ const statusOpcoes = [
           />
         </UFormField>
 
-        <UFormField label="Número BA" :error="erros.baNumber" required>
+        <UFormField label="NÃºmero BA" :error="erros.baNumber" required>
           <UInput
             v-model.number="form.baNumber"
             type="number"

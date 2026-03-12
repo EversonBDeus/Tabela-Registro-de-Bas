@@ -13,7 +13,7 @@ const periodoAtivo = ref<Periodo>('total')
 
 const periodos: Array<{ label: string; value: Periodo }> = [
   { label: 'Total', value: 'total' },
-  { label: 'Mês', value: 'mes' },
+  { label: 'MÃªs', value: 'mes' },
   { label: 'Semana', value: 'semana' },
   { label: 'Dia', value: 'dia' },
 ]
@@ -106,10 +106,10 @@ const dadosCentralHistorico = computed(() => {
 })
 
 const descricaoPeriodo = computed(() => {
-  if (periodoAtivo.value === 'mes') return 'mês atual'
-  if (periodoAtivo.value === 'semana') return 'últimos 7 dias'
+  if (periodoAtivo.value === 'mes') return 'mÃªs atual'
+  if (periodoAtivo.value === 'semana') return 'Ãºltimos 7 dias'
   if (periodoAtivo.value === 'dia') return 'dia atual'
-  return 'histórico completo'
+  return 'histÃ³rico completo'
 })
 
 const temaGrafico = computed(() => {
@@ -264,7 +264,7 @@ async function renderizar() {
           legend: { display: false },
           title: {
             display: true,
-            text: 'Quantidade de BA por Central (histórico completo)',
+            text: 'Quantidade de BA por Central (histÃ³rico completo)',
             color: tema.titulo,
             font: {
               size: 15,
@@ -345,7 +345,7 @@ function pct(valor: number, total: number) {
 <template>
   <UModal
     :open="open"
-    title="Gráficos — BA's"
+    title="GrÃ¡ficos â€” BA's"
     :ui="{ content: 'max-w-7xl w-full' }"
     @update:open="emit('update:open', $event)"
   >
@@ -392,7 +392,7 @@ function pct(valor: number, total: number) {
         </div>
 
         <div class="rounded-xl border border-gray-200 p-3 text-sm dark:border-gray-800">
-          O gráfico por central sempre usa o histórico completo, sem limitar por mês, semana ou dia.
+          O grÃ¡fico por central sempre usa o histÃ³rico completo, sem limitar por mÃªs, semana ou dia.
         </div>
 
         <UCard>

@@ -115,7 +115,7 @@ const columns: TableColumn<Ba>[] = [
     accessorKey: 'name',
     header: 'Nome',
     cell: ({ row }) =>
-      h('span', { class: 'text-sm font-medium' }, row.original.name ?? 'N„o informado'),
+      h('span', { class: 'text-sm font-medium' }, row.original.name ?? 'N√£o informado'),
   },
   {
     accessorKey: 'baUF',
@@ -135,7 +135,7 @@ const columns: TableColumn<Ba>[] = [
   },
   {
     accessorKey: 'baNumber',
-    header: 'N˙mero BA',
+    header: 'N√∫mero BA',
     cell: ({ row }) =>
       h('span', { class: 'font-mono text-sm' }, String(row.original.baNumber)),
   },
@@ -156,11 +156,11 @@ const columns: TableColumn<Ba>[] = [
     accessorKey: 'date',
     header: 'Data',
     cell: ({ row }) =>
-      h('span', { class: 'text-sm opacity-70' }, row.original.date ?? 'ó'),
+      h('span', { class: 'text-sm opacity-70' }, row.original.date ?? '‚Äî'),
   },
   {
     id: 'acoes',
-    header: 'AÁıes',
+    header: 'A√ß√µes',
     cell: ({ row }) =>
       h('div', { class: 'flex items-center gap-1' }, [
         h(UButton, {
@@ -192,7 +192,7 @@ function escapeCsv(valor: unknown): string {
 }
 
 function exportar() {
-  const header = ['#', 'Nome', 'UF', 'Central', 'N˙mero BA', 'Status', 'Data']
+  const header = ['#', 'Nome', 'UF', 'Central', 'N√∫mero BA', 'Status', 'Data']
 
   const linhas = filtrado.value.map((item, index) => [
     index + 1,
@@ -261,7 +261,7 @@ function exportar() {
           color="primary"
           @click="graficosOpen = true"
         >
-          <span class="hidden sm:inline">Gr·ficos</span>
+          <span class="hidden sm:inline">Gr√°ficos</span>
         </UButton>
 
         <UButton
@@ -350,14 +350,14 @@ function exportar() {
 
     <UModal
       :open="confirmarOpen"
-      title="Confirmar exclus„o"
+      title="Confirmar exclus√£o"
       @update:open="confirmarOpen = $event"
     >
       <template #body>
         <p class="text-sm">
           Deseja excluir o BA
-          <strong>{{ excluirAlvo?.baCentral }} ó {{ excluirAlvo?.baNumber }}</strong>?
-          Esta aÁ„o n„o pode ser desfeita.
+          <strong>{{ excluirAlvo?.baCentral }} ‚Äî {{ excluirAlvo?.baNumber }}</strong>?
+          Esta a√ß√£o n√£o pode ser desfeita.
         </p>
       </template>
 
