@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia'
+﻿import { defineStore } from 'pinia'
 import type { Ba, BaFormData, BaStatus } from '~/types/ba'
 
-const API = 'https://2qs083zp7j.execute-api.sa-east-1.amazonaws.com/prod/bas'
+const API = '/api/bas'
 
 const MESES_PT = [
   'janeiro',
@@ -111,10 +111,10 @@ function parseDataLegada(valor: unknown): string | undefined {
 }
 
 function formatarData(valor?: string): string {
-  if (!valor) return '�'
+  if (!valor) return 'ï¿½'
 
   const data = new Date(valor)
-  if (Number.isNaN(data.getTime())) return '�'
+  if (Number.isNaN(data.getTime())) return 'ï¿½'
 
   return new Intl.DateTimeFormat('pt-BR', {
     dateStyle: 'short',
@@ -138,7 +138,7 @@ function mapearItemApi(item: any): Ba {
     baCentral: normalizarCentral(item.baCentral),
     baNumber: obterNumero(item.baNumber),
     baStatus: normalizarStatus(item.baStatus),
-    name: normalizarNome(item.name) || 'N�o informado',
+    name: normalizarNome(item.name) || 'Nï¿½o informado',
     baDate,
     date: formatarData(baDate),
   }
@@ -152,7 +152,7 @@ function montarPayload(form: BaFormData, baDate?: string) {
     baCentral: normalizarCentral(form.baCentral),
     baNumber: obterNumero(form.baNumber),
     baStatus: normalizarStatus(form.baStatus),
-    name: normalizarNome(form.name) || 'N�o informado',
+    name: normalizarNome(form.name) || 'Nï¿½o informado',
     baDate: dataBase,
   }
 }
@@ -259,3 +259,4 @@ export const useBaStore = defineStore('ba', () => {
     remove,
   }
 })
+
